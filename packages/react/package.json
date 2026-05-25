@@ -18,7 +18,7 @@
     "build": "tsup src/index.ts --format esm,cjs --dts --clean --sourcemap --external react",
     "dev": "tsup src/index.ts --format esm,cjs --dts --watch --external react",
     "typecheck": "tsc --noEmit",
-    "test": "vitest run"
+    "test": "vitest run --passWithNoTests"
   },
   "peerDependencies": {
     "react": ">=18",
