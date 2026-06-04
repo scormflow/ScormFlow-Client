@@ -1,7 +1,7 @@
 {
   "name": "@scormflow/react",
-  "version": "0.0.0",
-  "description": "React hooks and <ScormPlayer/> component for ScormFlow.",
+  "version": "0.0.1",
+  "description": "React hooks and <ScormPlayer/> component for ScormFlow. Drop-in SCORM, xAPI, and cmi5 support for any React app.",
   "license": "MIT",
   "type": "module",
   "main": "./dist/index.js",
@@ -13,12 +13,42 @@
       "require": "./dist/index.cjs"
     }
   },
-  "files": ["dist", "src"],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/scormflow/scorm-engine-client.git",
+    "directory": "packages/react"
+  },
+  "homepage": "https://github.com/scormflow/scorm-engine-client/tree/main/packages/react#readme",
+  "bugs": {
+    "url": "https://github.com/scormflow/scorm-engine-client/issues"
+  },
+  "keywords": [
+    "scorm",
+    "scorm-1-2",
+    "scorm-2004",
+    "xapi",
+    "cmi5",
+    "elearning",
+    "react",
+    "react-hooks",
+    "react-component",
+    "scorm-player"
+  ],
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "sideEffects": false,
+  "files": ["dist", "src", "README.md", "LICENSE"],
   "scripts": {
     "build": "tsup src/index.ts --format esm,cjs --dts --clean --sourcemap --external react",
     "dev": "tsup src/index.ts --format esm,cjs --dts --watch --external react",
     "typecheck": "tsc --noEmit",
-    "test": "vitest run --passWithNoTests"
+    "test": "vitest run --passWithNoTests",
+    "prepublishOnly": "pnpm run typecheck && pnpm run build"
   },
   "peerDependencies": {
     "react": ">=18",
